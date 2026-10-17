@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A live Wondrous Tails tracker for Dungeons & Dragons FC." />
+    <meta name="theme-color" content="#151226" />
+    <title>D&amp;D Wondrous Tails</title>
+    <script type="module" crossorigin src="./assets/index-BphTdomu.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CrjlSJVE.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <span class="kicker">DND FC · Live tracker</span>
+        <h1>Wondrous Tails</h1>
+        <p>Shared journal entries from WTSync, ordered by party overlap.</p>
+      </div>
+      <div class="connection" id="connection" role="status" aria-live="polite">
+        <span class="connection-dot"></span>
+        <span id="connection-label">Preparing tracker</span>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="stats" id="summary" aria-label="Tracker summary"></section>
+
+      <section class="panel members-section" aria-labelledby="members-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Current journals</p>
+            <h2 id="members-title">Party overview</h2>
+          </div>
+          <button class="refresh-button" id="refresh-button" type="button" hidden>Reconnect</button>
+        </div>
+        <fieldset class="player-filters">
+          <legend>Visible players</legend>
+          <div id="player-filters"></div>
+        </fieldset>
+        <div class="member-grid" id="member-grid" aria-live="polite"></div>
+        <p class="missing-members" id="missing-members" hidden></p>
+      </section>
+
+      <section class="panel duties-section" aria-labelledby="duties-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Shared opportunities</p>
+            <h2 id="duties-title">Duty board</h2>
+          </div>
+          <p class="board-note">PvP hidden <span>·</span> Highest overlap first</p>
+        </div>
+        <div class="duty-filters" aria-label="Duty filters">
+          <label>Task type<select id="task-type-filter"><option value="">All types</option></select></label>
+          <label>Level requirement<select id="level-filter"><option value="">All levels</option></select></label>
+        </div>
+        <fieldset class="player-filters duty-player-filters" id="duty-player-filter-group" hidden>
+          <legend>Needed by</legend>
+          <div id="duty-player-filters"></div>
+        </fieldset>
+        <div id="duty-board"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Live data supplied by the WTSync Dalamud plugin.</p>
+      <p id="last-updated">Waiting for the first update.</p>
+    </footer>
+
+  </body>
+</html>
